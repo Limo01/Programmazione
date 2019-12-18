@@ -29,7 +29,7 @@ int main()
 	/*
 	* INVARIANTE: (ultima lettura è in input) && (prima di input nessuno '0') && 
 	*			  (!parentesiAccavallata => Non ci sono parentesi accavallate in s) &&
-				  (!moreParentesiChiuse => Non c'è un numero di parantesi chiuse maggiore di quelle aperte in s)
+	*			  (!moreParentesiChiuse => Non c'è un numero di parantesi chiuse maggiore di quelle aperte in s)
 	*/
 
 	if (parentesiAccavallata)
