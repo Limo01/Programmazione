@@ -17,10 +17,10 @@ int main()
 	cin >> dimA;
 	leggi(A, dimA);
 
-	for(int i=0; i < dimA; i++)
+	for(int i=0; i < dimA - 1; i++)
 	{
 		inizio = i;
-		while (A[i] < A[i + 1]) { i++;}
+		while (A[i] < A[i + 1] && i < dimA - 1) { i++;}
 		if(lungmax < i - inizio + 1)
 		{
 			lungmax = i - inizio + 1;
