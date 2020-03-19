@@ -30,33 +30,14 @@ void riempi(int A1[10][5], int A2[10][5])
 	int i = 0;
 	int nInput;
 
-	int rigaA1 = 0;
-	int colonnaA1 = 0;
-
-	int rigaA2 = 0;
-	int colonnaA2 = 0;
-
 	while (i < 50)
 	{
 		cin >> nInput;
 
-		A1[rigaA1][colonnaA1] = nInput;
-		colonnaA1++;
+		A1[i/5][i%5] = nInput;
 
-		A2[rigaA2][colonnaA2] = nInput;
-		rigaA2++;
+		A2[i%10][i/10] = nInput;
 
-		if (colonnaA1 == 5)
-		{
-			rigaA1++;
-			colonnaA1 = 0;
-		}
-
-		if (rigaA2 == 10)
-		{
-			colonnaA2++;
-			rigaA2 = 0;
-		}
 		i++;
 	}
 
