@@ -13,6 +13,21 @@ void stampa(nodo* y)
 	cout << endl;
 }
 
+void append(nodo** testa, int info)
+{
+	nodo* nuovo_nodo = new nodo(info);
+	nodo* coda = *testa;
+
+	if (*testa == NULL)
+		*testa = nuovo_nodo;
+	else
+	{
+		while (coda->next != NULL)
+			coda = coda->next;
+		coda->next = nuovo_nodo;
+	}
+}
+
 void match(int* X, int* P, int dimP)
 {
 	bool match = true;
@@ -34,18 +49,8 @@ nodo* matchStrato(int* X, int inizio, int lungS, int* P, int dimP, int nele)
 		try
 		{
 			match(X + inizio + i, P, dimP);
-
-			if (nMatch == 0)
-			{
-				testa = new nodo();
-				lista = testa;
-			}
-			else
-			{
-				lista->next = new nodo;
-				lista = lista->next;
-			}
-			lista->info = inizio + i;
+			
+			append(&testa, inizio + i);
 
 			nMatch++;
 			i += dimP;
