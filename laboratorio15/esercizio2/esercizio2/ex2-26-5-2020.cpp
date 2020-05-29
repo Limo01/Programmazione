@@ -57,34 +57,45 @@ void sc(int* C)
 }
 
 //PRE = (albero(r) ben formato, k > 0)
-int stampaASPre(nodo* r, int& n, int k)
+int stampaASPre(nodo* r, int n, int k)
 {
-	if (r)
+	if (!r)
+		return n;
+	else
 	{
-		if (n % k == k - 1)
+		if(n==0)
+		{
 			cout << r->info << " ";
-		n = n + 1;
-
-		stampaASPre(r->left, n, k);
-		stampaASPre(r->right, n, k);
-		return (k - 1) - (n % k);
+			n = k - 1;
+		}
+		else
+		{
+			n--;
+		}
+		n = stampaASPre(r->left, n, k);
+		return stampaASPre(r->right, n, k);
 	}
 }
 //POST=(considerando I nodi di albero®in ordine prefisso, salta n nodi e poi stampa quello successivo e dopone salta k-1 e poi stampa il successivo, restituisce il numero di nodi che vanno saltati nelle successive parti dell’albero)
 
 //PRE = (albero(r) ben formato, k > 0)
-int stampaASInf(nodo* r, int& n, int k)
+int stampaASInf(nodo* r, int n, int k)
 {
-	if (r)
+	if (!r)
+		return n;
+	else
 	{
-		stampaASInf(r->left, n, k);
-
-		if (n % k == k - 1)
+		n = stampaASInf(r->left, n, k);
+		if (n == 0)
+		{
 			cout << r->info << " ";
-		n = n + 1;
-
-		stampaASInf(r->right, n, k);
-		return (k - 1) - (n % k);
+			n = k - 1;
+		}
+		else
+		{
+			n--;
+		}		
+		return stampaASInf(r->right, n, k);
 	}
 }
 //POST=(considerando I nodi di albero®in ordine infisso, salta n nodi e poi stampa quello successivo e dopone salta k-1 e poi stampa il successivo, restituisce il numero di nodi che vanno saltati nelle successive parti dell’albero)
@@ -102,12 +113,9 @@ int main() {
 
 	int k;
 	cin >> k;
-	int i = 0;
-	int a1 = stampaASPre(root, i, k);
+
+	int a1 = stampaASPre(root, k-1, k);
 	cout << " con avanzo " << a1 << endl;
-
-	i = 0;
-
-	int b1 = stampaASInf(root, i, k);
+	int b1 = stampaASInf(root, k-1, k);
 	cout << " con avanzo " << b1 << endl;
 }
