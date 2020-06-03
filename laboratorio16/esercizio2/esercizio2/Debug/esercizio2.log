@@ -1,0 +1,6 @@
+﻿  BST.cpp
+  main.cpp
+  Generazione del codice in corso...
+C:\Users\marco\Documents\GitHub\Programmazione\laboratorio16\esercizio2\esercizio2\BST.cpp(54): warning C4715: 'BST::max': non tutti i percorsi di controllo restituiscono un valore
+C:\Users\marco\Documents\GitHub\Programmazione\laboratorio16\esercizio2\esercizio2\BST.cpp(63): warning C4715: 'BST::min': non tutti i percorsi di controllo restituiscono un valore
+  esercizio2.vcxproj -> C:\Users\marco\Documents\GitHub\Programmazione\laboratorio16\esercizio2\Debug\esercizio2.exe
